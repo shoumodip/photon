@@ -1,0 +1,65 @@
+#+options: num:nil toc:nil
+
+* Photon
+#+begin_quote
+Photons are the particles which are fundamental units of light
+exhibiting particle-like properties. It has no mass and is a stream of
+particles which we see as the ray of light.
+#+end_quote
+
+Photon finds =TODO= elements in a project and shows in a
+=FILE:LINE:COLUMN: MESSAGE= format. It acts as the "stream of
+particles which helps us see".
+
+* Installation
+This project is quite tiny, depending nothing but the builtin =--make=
+flag of Ghc to compile it.
+
+#+begin_src console
+$ git clone https://github.com/shoumodip/photon
+$ cd photon
+$ ghc --make Main.hs
+#+end_src
+
+* Usage
+Just pass the executable the list of files
+
+#+begin_src console
+$ ./Main [FILE1] [...]
+#+end_src
+
+* UNIX coreutils
+#+begin_src console
+$ grep -nH 'TODO: ' main.rs | sed 's/: .*TODO: /:/'
+#+end_src
+
+This works too. In fact, this is a better solution, with much less
+memory usage and a performance orders of magnitude better than this
+binary. I realise that. However, this repo is meant for educational
+purposes only. And also for people who have other work to do and don't
+have the time to manually setup the pipeline. In some cases, the
+pipeline may not be even possible. We all know windows doesn't support
+pipes.
+
+* Examples
+Some examples demonstrating how this can be used.
+
+- Search for =TODO= elements in specified files
+#+begin_src console
+$ ./Main main.rs lexer.rs gc.rs
+#+end_src
+
+- Search in the current repository
+#+begin_src console
+$ ./Main $(git ls-files)
+#+end_src
+
+- Search recursively in the current directory
+#+begin_src console
+$ ./Main $(find -type f)
+#+end_src
+
+- Search in the current directory
+#+begin_src console
+$ ./Main $(ls)
+#+end_src
