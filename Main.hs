@@ -28,7 +28,6 @@ findTodos fileName = map fromJust
 searchFile :: FilePath -> IO ()
 searchFile fileName = Text.readFile fileName >>=
   Text.putStrLn
-  . Text.init
   . Text.unlines
   . findTodos fileName
 
