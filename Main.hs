@@ -21,7 +21,6 @@ processLine fileName (line, contents) = result
 findTodos :: FilePath -> Text.Text -> [Text.Text]
 findTodos fileName = map fromJust
   . filter isJust
-  . init
   . map (processLine fileName)
   . zip [1..]
   . Text.lines
