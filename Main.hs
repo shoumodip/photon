@@ -1,11 +1,10 @@
-module Main where
-
 import Data.Maybe
 import System.Environment
 
 import qualified Data.Text                 as T
 import qualified Data.Text.IO              as T
 import qualified Data.Text.Internal.Search as T
+
 
 processLine :: FilePath -> (Int, T.Text) -> Maybe T.Text
 processLine fileName (line, contents)
