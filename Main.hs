@@ -22,7 +22,7 @@ findTodos fileName = mapMaybe (processLine fileName)
 
 searchFile :: FilePath -> IO ()
 searchFile fileName = T.readFile fileName >>=
-  T.putStrLn
+  T.putStr
   . T.unlines
   . findTodos fileName
 
